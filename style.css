@@ -94,6 +94,10 @@ ul, ol {
 
     --main-width: 95.55%;
 
+    --child-img-dimension: 320px;
+
+    --correction-margin: -34px;
+
 
     /* --tablette-font-size: 20px; */
 
@@ -110,6 +114,10 @@ ul, ol {
         --menu-dimensions: 54.34px;
         --btn-width: 144px;
         --main-width: 96%;
+
+        --child-img-dimension: 240px;
+
+        /* --correction-margin: -25px; */
     }
 }
 
@@ -122,6 +130,10 @@ ul, ol {
         --menu-dimensions: 32px;
         --btn-width: 96;
         --main-width: 95.6%;
+
+        --child-img-dimension: 144px;
+
+        --correction-margin:-16px;
     }
 }
 
@@ -149,9 +161,6 @@ body {
 
 header {
     background-image: url(assests/header_pc.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
 
     /* width: 100vw; */
     aspect-ratio: calc(1440/550);
@@ -237,6 +246,16 @@ header {
     grid-column: span 2;
 }
 
+.main-container > div {
+    /* background-color: blueviolet; */
+    margin-top: 3rem;
+}
+
+.main-container > div > *:not(:first-child) {
+    margin-top: 1rem;
+    /* background-color: gray; */
+}
+
 /* .child-0 */
 
 .child-0 {
@@ -245,10 +264,6 @@ header {
 
 /* .child-1 */
 
-.main-container > div > *:not(:first-child) {
-    margin-top: 1rem;
-    /* background-color: gray; */
-}
 
 .p-special {
     font-size: 20px;
@@ -276,7 +291,7 @@ header {
 
 .child-3 {
     /* background-color: blueviolet; */
-    margin-left: 4rem;
+    margin-left: 2.5rem;
 }
 
 .child-3 li:not(:first-child) {
@@ -312,6 +327,41 @@ header {
     left: -3rem;
 
 }
+
+/* .child-6 */
+
+
+
+.img-container {
+    /* background-color: blue; */
+    display: grid;
+    margin: auto;
+    /* width: var(--main-width); */
+    grid-template-columns: repeat(2,1fr);
+    gap: 2rem;
+}
+
+.new-york {
+    /* background-color: #FFC107; */
+    background-image: url(assests/New\ York\ -\ Statue\ of\ Liberty\ in\ the\ evening\ background_pc.png);
+    width: var(--child-img-dimension);
+    aspect-ratio: 1/1;
+    margin: auto;
+}
+
+.eifel-tower {
+    position: relative;  /* correction due to the design img having different inherent placing dmensions */
+    top: var(--correction-margin);
+    /* background-color: #FFC107; */
+    background-image: url(assests/Paris\ Eiffel\ Tower\ at\ sunset\ background_pc.png);
+    width: var(--child-img-dimension);
+    aspect-ratio: 1/1;
+    margin: auto;
+}
+
+
+/* .child-7 */
+
 
 /*
     media queries
@@ -372,8 +422,15 @@ header {
     .p-special {
         font-size: 19px;
     }
-}
 
+    .new-york {
+        background-image: url(assests/New\ York\ -\ Statue\ of\ Liberty\ in\ the\ evening\ background_tablette.png);
+    }
+    .eifel-tower {
+        background-image: url(assests/Paris\ Eiffel\ Tower\ at\ sunset\ background_tablette.png);
+
+    }
+}
 /*
     phone media queries
 */
@@ -401,6 +458,13 @@ header {
         font-size: 14px;
     }
 
+    .new-york {
+        background-image: url(assests/New\ York\ -\ Statue\ of\ Liberty\ in\ the\ evening\ background_phone.png);
+    }
+
+    .eifel-tower {
+        background-image: url(assests/Paris\ Eiffel\ Tower\ at\ sunset\ background_phone.png);
+    }
 }
 
 /* utility classes */
@@ -409,6 +473,12 @@ header {
 /* .show {
     /* max-height: 25rem; */
     /* padding: 1rem; */
+
+.bg-img-handler {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
 
 .title {
     font-family: var(--secondary-font);
