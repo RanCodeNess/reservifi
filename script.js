@@ -27,5 +27,3 @@ menuToggle.addEventListener('click', () => {
     }
     navLinks.classList.toggle('show');
 });
-
-
