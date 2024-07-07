@@ -153,7 +153,7 @@ header {
     background-position: center;
     background-size: cover;
 
-    width: 100vw;
+    /* width: 100vw; */
     aspect-ratio: calc(1440/550);
     /* height: 700px; */
 
