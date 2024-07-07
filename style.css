@@ -45,15 +45,21 @@ input, button, textarea, select {
 /*
     7. Avoid text overflows
 */
-p, h1, h2, h3, h4, h5, h6 {
+/* p, h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
-}
+} */
   /*
     8. Create a root stacking context
   */
 #root, #__next {
     isolation: isolate;
 }
+
+/* 9. Remove liqt decorations */
+ul, ol {
+    list-style: none; /* Removes bullet points and numbers */
+}
+
 /* CSS reset section end */
 
 /* css variables */
@@ -99,6 +105,8 @@ p, h1, h2, h3, h4, h5, h6 {
     /* tablette variables */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     :root {
+        --title-size: 40px;
+
         --menu-dimensions: 54.34px;
         --btn-width: 144px;
         --main-width: 96%;
@@ -108,6 +116,7 @@ p, h1, h2, h3, h4, h5, h6 {
     /* phone variables */
 @media screen and (max-width: 767px) {
     :root {
+        --title-size: 32px;
         --p-size: 16px;
 
         --menu-dimensions: 32px;
@@ -128,6 +137,7 @@ p, h1, h2, h3, h4, h5, h6 {
 body {
     font-family: var(--main-font);
     font-size: var(--p-size);
+    font-weight: var(--p-weight);
     line-height: var(--p-line-height);
     color: var(--font-primary-color);
     background-color: var(--bg-primary-color);
@@ -143,9 +153,9 @@ header {
     background-position: center;
     background-size: cover;
 
-    /* width: 100vw; */
+    width: 100vw;
     aspect-ratio: calc(1440/550);
-    /* height: 60rem; */
+    /* height: 700px; */
 
     font-size: var(--p-size);
     user-select: none;
@@ -223,34 +233,85 @@ header {
     /* z-index: 2; */
 }
 
-.main-container div {
-    /* background-color: rgb(0, 34, 255); */
-    /* padding: 1rem; */
-}
 .full-row {
     grid-column: span 2;
 }
 
+/* .child-0 */
 
-.main-container:nth-child(1) div {
-    /* margin: 1rem; */
-    /* background-color: aqua; */
-    /* max-width: 100%; */
+.child-0 {
+    max-width: 70%; /*sticking to the fucking design*/
 }
 
-.p p + div {
+/* .child-1 */
+
+.main-container > div > *:not(:first-child) {
     margin-top: 1rem;
     /* background-color: gray; */
+}
+
+.p-special {
+    font-size: 20px;
+    font-family: var(--secondary-font);
 }
 
 .btn-container {
     display: flex;
     gap: 1rem;
+    margin-left: 10%;
     /* background-color: aqua; */
 }
 
+/* .child-2 */
 
+.child-2 {
+    /* background-color: blue; */
+}
 
+.child-2 .btn-container {
+    margin-left: 0;
+}
+
+/* .child-3 */
+
+.child-3 {
+    /* background-color: blueviolet; */
+    margin-left: 4rem;
+}
+
+.child-3 li:not(:first-child) {
+    margin-top: 3rem;
+    /* background-color: gray; */
+}
+
+.child-3 h4 {
+    position: relative;
+    font-weight: var(--title-weight);
+    line-height: var(--title-line-height);
+    font-size: 24px;
+    margin-bottom: .75rem;
+    /* background-color: gray; */
+}
+
+.child-3 p {
+
+}
+
+/* .child-3 li {
+    position: relative;
+} */
+
+.child-3 h4::before {
+    content: '';
+    position: absolute;
+    height: .875rem;
+    aspect-ratio: 1/1;
+    background-color: var(--font-primary-color);
+    border-radius: 50%;
+    top: 2rem;
+    left: -3rem;
+
+}
 
 /*
     media queries
@@ -293,8 +354,9 @@ header {
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     header {
-        background-image: url(assests/header-tablette.png);
+        background-image: url(assests/header_tablette.png);
         aspect-ratio: calc(810/575);
+        opacity: .75;
         /* height: 50rem; */
         /* margin-top: 5rem; */
     }
@@ -307,6 +369,9 @@ header {
         width: 144px;
         height: 48px;
     }
+    .p-special {
+        font-size: 19px;
+    }
 }
 
 /*
@@ -315,8 +380,9 @@ header {
 
 @media screen and (max-width: 767px) {
     header {
-        background-image: url(assests/header-phone.png);
-        aspect-ratio: 390/400;
+        background-image: url(assests/header_phone.png);
+        aspect-ratio: calc(390/400);
+        opacity: .75;
     }
     .sign-btn {
         width: 96px;
@@ -330,6 +396,11 @@ header {
     .full-row {
         grid-column: span 1;
     }
+
+    .p-special {
+        font-size: 14px;
+    }
+
 }
 
 /* utility classes */
