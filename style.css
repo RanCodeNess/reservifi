@@ -324,13 +324,11 @@ header {
     background-color: var(--font-primary-color);
     border-radius: 50%;
     top: 2rem;
-    left: -3rem;
+    left: -2.5rem;
 
 }
 
 /* .child-6 */
-
-
 
 .img-container {
     /* background-color: blue; */
@@ -361,6 +359,93 @@ header {
 
 
 /* .child-7 */
+
+/* .child-7 > * {
+    text-align: center;
+    background-color: brown;
+    margin: auto;
+} */
+
+.child-7 .card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    /* background-color: brown;
+    height: 5rem; */
+
+}
+
+/* .card-container :nth-last-child(2) {
+    margin-bottom: auto;
+} */
+
+
+
+
+.child-7 .card {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 416px;
+    margin: 0 auto;
+    background-color: rgba(0, 206, 209, 0.75);
+    padding: 1rem;
+}
+
+.card-container .card > :last-child {
+    margin-top: auto;
+}
+
+
+
+.child-7 .card > :not(.card-header) {
+    padding: 1rem;
+} 
+
+
+.child-7 .card .card-header {
+    aspect-ratio: 416/280;
+    margin: -1rem -1rem 1rem -1rem; /*this negates the padding given before*/
+}
+
+.child-7 .card-0 .card-header {
+    background-image: url(assests/card-0_pc.png);
+}
+
+.child-7 .card-1 .card-header {
+    background-image: url(assests/card-1_pc.png);
+}
+
+.child-7 .card-2 .card-header {
+    background-image: url(assests/card-2_pc.png);
+}
+
+.child-7 .card-footer {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+
+
+.card-footer-icon {
+  width: 48px;
+  height: 48px;
+  /* background: yellow; */
+  border-radius: 50%;
+}
+
+.card-0 .card-footer-icon {
+    background-image: url(assests/card-0_footer.png);
+}
+
+.card-1 .card-footer-icon {
+    background-image: url(assests/card-1_footer.png);
+}
+
+.card-2 .card-footer-icon {
+    background-image: url(assests/card-2_footer.png);
+}
 
 
 /*
@@ -396,6 +481,29 @@ header {
         /* border-top: 2px  solid black; */
         /* border-bottom: 2px solid black; */
     }
+
+    .child-7 .card-header {
+        aspect-ratio: 357/240;
+    }
+
+    .child-7 .card-0 .card-header {
+        background-image: url(assests/card-0_tablette-phone.png);
+    }
+
+    
+    .child-7 .card-1 .card-header {
+        background-image: url(assests/card-1_tablette-phone.png);
+    }
+
+    .child-7 .card-2 .card-header {
+        background-image: url(assests/card-2_tablette-phone.png);
+    }
+
+    .child-7 .card {
+        max-width: 357px;
+        background-color: rgba(0, 206, 209, 0.75);
+        padding: 1rem;
+    }
 }
 
 /*
@@ -429,6 +537,11 @@ header {
     .eifel-tower {
         background-image: url(assests/Paris\ Eiffel\ Tower\ at\ sunset\ background_tablette.png);
 
+    }
+
+    .child-7 .card-container {
+        grid-template-columns: repeat(2, 1fr);
+    
     }
 }
 /*
@@ -465,6 +578,13 @@ header {
     .eifel-tower {
         background-image: url(assests/Paris\ Eiffel\ Tower\ at\ sunset\ background_phone.png);
     }
+
+    .child-7 .card-container {
+        grid-template-columns: repeat(1, 1fr);
+    
+    }
+
+
 }
 
 /* utility classes */
@@ -515,6 +635,11 @@ header {
 .bg-orange {
     background-color: rgba(255, 165, 0, 1);
 }
+
+.center-text {
+    text-align: center;
+}
+
 
 /* complete btn containr btn bg bttn clrs remove bg color container main */
 
