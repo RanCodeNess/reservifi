@@ -60,6 +60,8 @@ ul, ol {
     list-style: none; /* Removes bullet points and numbers */
 }
 
+
+
 /* CSS reset section end */
 
 /* css variables */
@@ -221,7 +223,7 @@ header {
     margin: 1.5rem 3% 0 0;
 
     border-radius: 15px;
-    border: none;
+    /* border: none; */
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
 
     display: grid;
@@ -234,8 +236,7 @@ header {
 
 .main-container {
     display: grid;
-    margin: 3rem auto;
-    width: var(--main-width);
+    max-width: 100%;
     grid-template-columns: repeat(2,1fr);
     gap: 2rem;
     /* background-color: green; */
@@ -279,9 +280,9 @@ header {
 
 /* .child-2 */
 
-.child-2 {
-    /* background-color: blue; */
-}
+/* .child-2 {
+    background-color: blue;
+} */
 
 .child-2 .btn-container {
     margin-left: 0;
@@ -308,9 +309,9 @@ header {
     /* background-color: gray; */
 }
 
-.child-3 p {
+/* .child-3 p {
 
-}
+} */
 
 /* .child-3 li {
     position: relative;
@@ -339,10 +340,15 @@ header {
     gap: 2rem;
 }
 
+.img-container > div {
+    
+}
+
 .new-york {
     /* background-color: #FFC107; */
     background-image: url(assests/New\ York\ -\ Statue\ of\ Liberty\ in\ the\ evening\ background_pc.png);
-    width: var(--child-img-dimension);
+    width: 70%;
+    max-width: var(--child-img-dimension);
     aspect-ratio: 1/1;
     margin: auto;
 }
@@ -352,7 +358,8 @@ header {
     top: var(--correction-margin);
     /* background-color: #FFC107; */
     background-image: url(assests/Paris\ Eiffel\ Tower\ at\ sunset\ background_pc.png);
-    width: var(--child-img-dimension);
+    width: 70%;
+    max-width: var(--child-img-dimension);
     aspect-ratio: 1/1;
     margin: auto;
 }
@@ -390,6 +397,12 @@ header {
     margin: 0 auto;
     background-color: rgba(0, 206, 209, 0.75);
     padding: 1rem;
+}
+
+.child-7 .card-container .btn {
+    background-color: blue;
+    place-self: center;
+    grid-column: span 3;
 }
 
 .card-container .card > :last-child {
@@ -445,6 +458,78 @@ header {
 
 .card-2 .card-footer-icon {
     background-image: url(assests/card-2_footer.png);
+}
+
+
+/* footer*/
+
+footer * {
+    margin: .5rem 0;
+
+}
+
+footer hr {
+    margin: 4rem 3%;
+}
+
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.reservifi-title {
+    font-family: "Pacifico", cursive;
+    font-size: var(--title-size);
+    color: rgba(27, 113, 245, 1);
+}
+
+.credit-container {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.sub-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.sub-container > * {
+    padding: 1rem;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+    /* flex-shrink: 1;
+    width: auto; */
+}
+
+.sub-container input {
+    background-color: var(--bg-primary-color);
+}
+
+.sub-container :first-child {
+    width: 60%;
+    /* max-width: 8/1 !important; */
+    /* min-width: fit-content; */
+    /* aspect-ratio: 8/1; */
+}
+
+.sub-container :nth-child(2) {
+    width: 30%;
+    /* max-width: 4/1; */
+    /* min-width: fit-content; */
+    /* aspect-ratio: 4/1; */
+}
+
+.footer-end-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-end-container a {
+    text-decoration: underline;
+}
+
+.footer-end-container > :last-child {
+    margin-left: auto;
 }
 
 
@@ -504,6 +589,19 @@ header {
         background-color: rgba(0, 206, 209, 0.75);
         padding: 1rem;
     }
+
+    .child-7 .card-container .btn {
+        grid-column: span 1;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+
+
+
 }
 
 /*
@@ -543,6 +641,10 @@ header {
         grid-template-columns: repeat(2, 1fr);
     
     }
+    .sub-container {
+        width: 60%;
+    }
+
 }
 /*
     phone media queries
@@ -561,7 +663,9 @@ header {
 
 
     .main-container {
-        grid-template-columns: repeat(1,1fr);
+        /* grid-template-columns: repeat(1,1fr); */
+        display: flex;
+        flex-direction: column;
     }
     .full-row {
         grid-column: span 1;
@@ -584,6 +688,26 @@ header {
     
     }
 
+    .credit-container {
+        flex-direction: column;
+    }
+
+    .sub-container {
+        flex-direction: column;
+    }
+    .sub-container > * {
+        width: 100% !important;
+    }
+
+    .footer-end-container > :last-child {
+        margin: 0;
+    }
+
+    .footer-end-container {
+        flex-direction: column;
+    }
+
+
 
 }
 
@@ -593,6 +717,12 @@ header {
 /* .show {
     /* max-height: 25rem; */
     /* padding: 1rem; */
+
+
+.wrapper {
+    width: var(--main-width);
+    margin: 3rem auto;
+}
 
 .bg-img-handler {
     background-repeat: no-repeat;
@@ -629,7 +759,7 @@ header {
 }
 
 .btn-border {
-    border: 1px solid rgba(0, 0, 0, 1)
+    border: 1px solid rgba(0, 0, 0, 1);
 }
 
 .bg-orange {
@@ -637,8 +767,11 @@ header {
 }
 
 .center-text {
-    text-align: center;
+    display: grid;
+    place-items: center;
+    /* text-align: center; */
 }
+
 
 
 /* complete btn containr btn bg bttn clrs remove bg color container main */
