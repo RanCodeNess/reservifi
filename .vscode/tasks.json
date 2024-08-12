@@ -1,0 +1,33 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Start Server",
+        "type": "shell",
+        "command": "npm start",  // Replace this with your server command
+        "problemMatcher": [],
+        "isBackground": true,
+        "group": {
+            "kind": "build",
+            "isDefault": true
+        }
+      },
+      {
+        "label": "Clear Console",
+        "type": "shell",
+        "command": "cls", // Use "clear" for macOS/Linux
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "presentation": {
+          "echo": false,
+          "reveal": "always",
+          "focus": false,
+          "panel": "shared"
+        },
+        "problemMatcher": []
+      }
+    ]
+  }
+  

@@ -21,6 +21,7 @@ body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     height: 100%;
+    /* overflow: hidden; */
 }
 
 a {
@@ -94,6 +95,8 @@ ul, ol {
     --btn-large-width:168px;
     --btn-large-ratio:calc(168/64);
 
+    --wrapper: 64px;
+
     --main-width: 95.55%;
 
     --child-img-dimension: 320px;
@@ -119,6 +122,8 @@ ul, ol {
 
         --child-img-dimension: 240px;
 
+        --wrapper: 32px;
+
         /* --correction-margin: -25px; */
     }
 }
@@ -133,9 +138,11 @@ ul, ol {
         --btn-width: 96;
         --main-width: 95.6%;
 
+        --wrapper: 16px;
+
         --child-img-dimension: 144px;
 
-        --correction-margin:-16px;
+        --correction-margin: -16px;
     }
 }
 
@@ -164,9 +171,11 @@ body {
 header {
     background-image: url(assests/header_pc.png);
 
-    /* width: 100vw; */
+    width: 100%;
     aspect-ratio: calc(1440/550);
     /* height: 700px; */
+
+    /* opacity: 1; */
 
     font-size: var(--p-size);
     user-select: none;
@@ -220,7 +229,7 @@ header {
     width: 160px;
     height: 54.33px; 
     /* aspect-ratio: 3/1; */
-    margin: 1.5rem 3% 0 0;
+    margin: 1.5rem var(--wrapper) 0 0;
 
     border-radius: 15px;
     /* border: none; */
@@ -250,6 +259,29 @@ header {
 .main-container > div {
     /* background-color: blueviolet; */
     margin-top: 3rem;
+    position: relative;
+}
+
+.main-container > div svg,
+.main-container > div picture {
+    position: absolute;
+    z-index: -1;
+}
+
+.main-container .child-0 svg,
+.main-container .child-4 svg,
+.main-container .child-7 .left-svg {
+    left: calc(-1 * var(--wrapper));
+}
+
+.main-container .child-1 svg,
+.main-container .child-3 svg,
+.main-container .child-7 .left-svg {
+    right: calc(-1 * var(--wrapper));
+}
+
+.main-container > div svg:not(:first-child) {
+    display: none;
 }
 
 .main-container > div > *:not(:first-child) {
@@ -263,13 +295,30 @@ header {
     max-width: 70%; /*sticking to the fucking design*/
 }
 
+.child-0 > svg {
+    top: -1.8rem;
+}
+
 /* .child-1 */
 
 
-.p-special {
+.child-1 svg {
+    top: -13.5rem;
+    z-index: -1;
+    /* clip-path: inset(0 0 0 0); */
+    /* overflow: hidden; */
+}
+
+.child-1 picture,
+.child-2 picture {
+    right: 0;
+}
+
+
+/* .p-special {
     font-size: 20px;
     font-family: var(--secondary-font);
-}
+} */
 
 .btn-container {
     display: flex;
@@ -283,6 +332,8 @@ header {
 /* .child-2 {
     background-color: blue;
 } */
+
+
 
 .child-2 .btn-container {
     margin-left: 0;
@@ -317,8 +368,7 @@ header {
     position: relative;
 } */
 
-.child-3 h4::before {
-    content: '';
+.child-3 h4 .before {
     position: absolute;
     height: .875rem;
     aspect-ratio: 1/1;
@@ -328,6 +378,40 @@ header {
     left: -2.5rem;
 
 }
+
+.child-3 li:not(:last-child) h4 .after {
+
+    position: absolute;
+    width: .3rem;
+    
+
+    background-color: var(--font-primary-color);
+    left: -2.2008rem;
+    top: 2.05rem;
+    z-index: -1;
+}
+
+/* .child-3 li {
+    position: relative;
+}
+
+.child-3 li::after {
+    content: "";
+    width: .2rem;
+    height: 140%;
+    top: 2.5rem;
+    left: -2.15rem;
+    position: absolute;
+    background-color: #5f5f5f;
+    z-index: 100;
+} */
+
+
+
+/* .child-3 > ul > li:not(:last-child) h4 {
+    background-color: #FFC107;
+} */
+
 
 /* .child-6 */
 
@@ -386,7 +470,12 @@ header {
     margin-bottom: auto;
 } */
 
-
+@keyframes trans-effect {
+    0% {
+        transform: translate();
+    }
+    90% {}
+}
 
 
 .child-7 .card {
@@ -397,10 +486,14 @@ header {
     margin: 0 auto;
     background-color: rgba(0, 206, 209, 0.75);
     padding: 1rem;
+
+    border: 2px solid rgba(0, 0, 0, 1);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
+
 }
 
 .child-7 .card-container .btn {
-    background-color: blue;
+    /* background-color: blue; */
     place-self: center;
     grid-column: span 3;
 }
@@ -480,7 +573,8 @@ footer hr {
 
 .reservifi-title {
     font-family: "Pacifico", cursive;
-    font-size: var(--title-size);
+    font-size: 48px;
+    font-weight: 300;
     color: rgba(27, 113, 245, 1);
 }
 
@@ -517,6 +611,10 @@ footer hr {
     /* max-width: 4/1; */
     /* min-width: fit-content; */
     /* aspect-ratio: 4/1; */
+}
+
+.sub-container .btn-sub {
+    cursor: pointer;
 }
 
 .footer-end-container {
@@ -567,6 +665,10 @@ footer hr {
         /* border-bottom: 2px solid black; */
     }
 
+    .main-container > div svg:first-child {
+        display: none;
+    }
+
     .child-7 .card-header {
         aspect-ratio: 357/240;
     }
@@ -612,13 +714,24 @@ footer hr {
     header {
         background-image: url(assests/header_tablette.png);
         aspect-ratio: calc(810/575);
+        /* width: 100%; */
+        /* height: 35rem; */
         opacity: .75;
-        /* height: 50rem; */
+        max-height: 55vh;
+        /* background-size: contain; */
         /* margin-top: 5rem; */
     }
 
     .nav-links li {
         padding: 1.25rem;
+    }
+
+    .main-container > div svg:nth-child(2) {
+        display: block;
+    }
+
+    .child-0 svg {
+        top: -3.5rem;
     }
 
     .sign-btn {
@@ -652,13 +765,40 @@ footer hr {
 
 @media screen and (max-width: 767px) {
     header {
-        background-image: url(assests/header_phone.png);
+        background-image: url(assests/trying.jpg);
         aspect-ratio: calc(390/400);
+        max-height: 55vh;
         opacity: .75;
     }
     .sign-btn {
         width: 96px;
         height: 32px;
+    }
+
+
+
+    .main-container > div svg:nth-child(3) {
+        display: block;
+        /* background-color: blue; */
+    }
+
+    .child-1,
+    .child-2 {
+        /* background-color: #FFC107; */
+        margin-bottom: 2rem;
+    }
+
+    .child-1 picture {
+        /* bottom: 0; */
+        top: 3rem;
+        /* background-color: blue; */
+    }
+
+    .child-2 h2 {
+        max-width: 60%;
+    }
+    .child-2 picture {
+        top: 1rem;
     }
 
 
@@ -671,10 +811,17 @@ footer hr {
         grid-column: span 1;
     }
 
+    .child-0 h2 {
+        max-width: 15rem;
+    }
+/* 
     .p-special {
         font-size: 14px;
-    }
+    } */
 
+    .child-1 svg {
+        top: -8rem;
+    }
     .new-york {
         background-image: url(assests/New\ York\ -\ Statue\ of\ Liberty\ in\ the\ evening\ background_phone.png);
     }
@@ -720,8 +867,8 @@ footer hr {
 
 
 .wrapper {
-    width: var(--main-width);
-    margin: 3rem auto;
+    /* width: var(--main-width); */
+    margin: 3rem var(--wrapper);
 }
 
 .bg-img-handler {
@@ -743,6 +890,7 @@ footer hr {
     place-items: center;
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.25);
+    cursor: pointer;
     /* background-color: yellow; */
     /* white-space: nowrap; */
 }
@@ -769,7 +917,7 @@ footer hr {
 .center-text {
     display: grid;
     place-items: center;
-    /* text-align: center; */
+    text-align: center;
 }
 
 
