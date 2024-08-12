@@ -59,7 +59,12 @@ function stickresize() {
         // console.log(sticks[i].style.height)
     };
 }
-stickresize()
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    stickresize()
+})
+
 window.addEventListener('resize', () => {
     stickresize()
 })

@@ -34,7 +34,7 @@ a {
     5. Improve media defaults
 */
 img, picture, video, canvas, svg {
-    /* display: block; */
+    display: block;
     max-width: 100%;
 }
 /*
@@ -246,7 +246,7 @@ header {
 .main-container {
     display: grid;
     max-width: 100%;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2,minmax(0,1fr));
     gap: 2rem;
     /* background-color: green; */
     /* z-index: 2; */
@@ -262,27 +262,15 @@ header {
     position: relative;
 }
 
-.main-container > div svg,
-.main-container > div picture {
+
+.main-container > div picture,
+.footer-end-container picture {
     position: absolute;
     z-index: -1;
 }
 
-.main-container .child-0 svg,
-.main-container .child-4 svg,
-.main-container .child-7 .left-svg {
-    left: calc(-1 * var(--wrapper));
-}
 
-.main-container .child-1 svg,
-.main-container .child-3 svg,
-.main-container .child-7 .left-svg {
-    right: calc(-1 * var(--wrapper));
-}
 
-.main-container > div svg:not(:first-child) {
-    display: none;
-}
 
 .main-container > div > *:not(:first-child) {
     margin-top: 1rem;
@@ -295,22 +283,27 @@ header {
     max-width: 70%; /*sticking to the fucking design*/
 }
 
-.child-0 > svg {
-    top: -1.8rem;
+.child-0 > picture {
+    top: -3rem;
 }
 
 /* .child-1 */
 
 
-.child-1 svg {
+.child-0,.child-1 {
+    margin-bottom: 4rem;
+}
+
+
+.child-1 .blob-right {
     top: -13.5rem;
-    z-index: -1;
+    z-index: -2;
     /* clip-path: inset(0 0 0 0); */
     /* overflow: hidden; */
 }
 
-.child-1 picture,
-.child-2 picture {
+.child-1 .photo,
+.child-2 .photo {
     right: 0;
 }
 
@@ -329,9 +322,11 @@ header {
 
 /* .child-2 */
 
-/* .child-2 {
-    background-color: blue;
-} */
+.child-2,
+.child-3 {
+    /* background-color: blue;  */
+    margin-bottom: 20rem;
+}
 
 
 
@@ -413,6 +408,21 @@ header {
 } */
 
 
+/* .child-4 */
+
+.child-4 picture {
+    /* background-color: #FFC107; */
+    top: -17rem;
+}
+
+
+/* .child-5 */
+
+.child-5 picture {
+    /* display: none; */
+}
+
+
 /* .child-6 */
 
 .img-container {
@@ -451,11 +461,15 @@ header {
 
 /* .child-7 */
 
-/* .child-7 > * {
-    text-align: center;
-    background-color: brown;
-    margin: auto;
-} */
+.child-7 {
+    /* text-align: center;
+    background-color: brown;*/
+    margin-bottom: 15rem; 
+}
+
+.child-7 picture:not(:last-child) {
+    top: -4rem;
+}
 
 .child-7 .card-container {
     display: grid;
@@ -466,16 +480,15 @@ header {
 
 }
 
+.child-7 .card-container > :last-child {
+    /* background-color: green; */
+    margin-top: 6rem;
+}
+
 /* .card-container :nth-last-child(2) {
     margin-bottom: auto;
 } */
 
-@keyframes trans-effect {
-    0% {
-        transform: translate();
-    }
-    90% {}
-}
 
 
 .child-7 .card {
@@ -556,13 +569,18 @@ header {
 
 /* footer*/
 
-footer * {
-    margin: .5rem 0;
+footer .footer-container *:not(picture) {
+    margin: .7rem 0;
+    /* overflow: hidden; */
+}
 
+footer .footer-end-container picture {
+    bottom: -3rem;
 }
 
 footer hr {
     margin: 4rem 3%;
+    margin-top: 18rem;
 }
 
 
@@ -620,6 +638,7 @@ footer hr {
 .footer-end-container {
     display: flex;
     gap: 1rem;
+    position: relative;
 }
 
 .footer-end-container a {
@@ -754,6 +773,11 @@ footer hr {
         grid-template-columns: repeat(2, 1fr);
     
     }
+
+    .child-7 .card-container > :last-child {
+        /* background-color: green; */
+        margin-top: 0rem;
+    }
     .sub-container {
         width: 60%;
     }
@@ -781,11 +805,15 @@ footer hr {
         display: block;
         /* background-color: blue; */
     }
-
+    .child-0,
     .child-1,
     .child-2 {
         /* background-color: #FFC107; */
         margin-bottom: 2rem;
+    }
+
+    .child-3 {
+        margin-bottom: 15rem;
     }
 
     .child-1 picture {
@@ -819,8 +847,10 @@ footer hr {
         font-size: 14px;
     } */
 
-    .child-1 svg {
-        top: -8rem;
+
+    .child-5 picture {
+        left: auto;
+        right: 3rem;
     }
     .new-york {
         background-image: url(assests/New\ York\ -\ Statue\ of\ Liberty\ in\ the\ evening\ background_phone.png);
@@ -833,6 +863,16 @@ footer hr {
     .child-7 .card-container {
         grid-template-columns: repeat(1, 1fr);
     
+    }
+
+    .child-7 .card-container > :last-child {
+        /* background-color: green; */
+        margin-top: 5rem;
+    }
+
+    .child-7 picture:nth-child(2) {
+        /* background-color: #FFC107; */
+        top: 25%;
     }
 
     .credit-container {
@@ -854,6 +894,11 @@ footer hr {
         flex-direction: column;
     }
 
+    .footer-end-container picture:nth-child(2) {
+        /* background-color: #FFC107; */
+        bottom: auto;
+        top: -300%;
+    }
 
 
 }
@@ -912,6 +957,21 @@ footer hr {
 
 .bg-orange {
     background-color: rgba(255, 165, 0, 1);
+}
+
+.blob-left {
+    left: calc(-1 * var(--wrapper));
+}
+
+.blob-right {
+    right: calc(-1 * var(--wrapper));
+}
+.blob-top {
+    top: 0;
+}
+
+.blob-bottom {
+    bottom: 0;
 }
 
 .center-text {
