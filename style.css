@@ -305,6 +305,7 @@ header {
 .child-1 .photo,
 .child-2 .photo {
     right: 0;
+    /* bottom: 0rem; */
 }
 
 
@@ -570,7 +571,7 @@ header {
 /* footer*/
 
 footer .footer-container *:not(picture) {
-    margin: .7rem 0;
+    margin: .4rem 0;
     /* overflow: hidden; */
 }
 
@@ -809,7 +810,7 @@ footer hr {
     .child-1,
     .child-2 {
         /* background-color: #FFC107; */
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
     }
 
     .child-3 {
@@ -818,8 +819,13 @@ footer hr {
 
     .child-1 picture {
         /* bottom: 0; */
-        top: 3rem;
+        top: 7rem;
         /* background-color: blue; */
+    }
+
+    .child-1 .photo {
+        /* top: 2rem; */
+        /* bottom: -5rem; */
     }
 
     .child-2 h2 {
@@ -872,7 +878,7 @@ footer hr {
 
     .child-7 picture:nth-child(2) {
         /* background-color: #FFC107; */
-        top: 25%;
+        top: 30%;
     }
 
     .credit-container {
@@ -897,7 +903,7 @@ footer hr {
     .footer-end-container picture:nth-child(2) {
         /* background-color: #FFC107; */
         bottom: auto;
-        top: -300%;
+        top: -350%;
     }
 
 
