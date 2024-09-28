@@ -1,0 +1,173 @@
+/* VARIABLES */
+
+
+
+
+
+
+/* GLOBAL STYLES */
+
+body {
+    max-height: 100vh;
+}
+
+body .sign-up{
+    color: rgb(0, 0, 0) !important;
+}
+
+/* HEADER */
+
+.header-container {
+    display: grid;
+    grid-template-columns: 36rem 1fr; /* need to ask the designer wether it shoulf expand or keep it fixed */
+    /* grid-template-rows:; */
+    height: 100vh;
+    grid-template-rows: auto;
+}
+
+.pc-img-container {
+    background-image: url(../../assests/motivational-picture.png);
+    
+}
+
+.pc-img-container > p {
+    border: 0.75px solid #13131A;
+    text-align: center;
+    background-color: #13131A66;
+    margin-top: 36rem;
+
+}
+
+
+.header-su {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* align-self: start;  */
+}
+.header-su > .reservifi-title {
+    margin-right: 2rem;
+}
+
+/* SIGN-UP */
+
+.sign-up {
+    margin-inline: auto;
+    width: clamp(0px,60%,28rem);
+    /* height: 38rem; */
+    /* display: flex; */
+    /* flex-direction: column; */
+}
+
+.sign-up > * {
+    width: 100%;
+    display: block;
+    margin-top: 1rem;
+    margin-inline: auto;
+    /* flex: 1; */
+}
+
+.sign-up > *:not(input,:first-child) {
+    text-align: center;
+}
+
+.sign-up > :first-child {
+    color: white;
+    margin-bottom: 3rem;
+}
+
+.sign-up > input {
+    height: 4rem;
+    padding-inline: 2rem;
+    border-radius: 10px;
+}
+.sign-up input:last-of-type {
+    margin-top: 3rem;
+    cursor: pointer;
+    background-color: #00CED1;
+    /* background-color: yellow; */
+}
+
+
+.hr-container {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.hr-container > * {
+    text-wrap: nowrap;
+    text-align: center;
+    flex: 1;
+}
+
+.alt-sign-up-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* width: 120%; */
+    /* margin-left: -20%; */
+    /* margin-left: ; */
+    gap: .4rem;
+}
+.alt-sign-up-container > * {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    /* width: 10rem; */
+    /* width: clamp(fit-content,10rem,20rem); */
+    /* justify-content: space-between; */
+    background-color: white;
+    border-radius: 15px;
+    padding-inline: .75rem;
+    min-width: fit-content;
+    /* padding-inline: 1.5rem; */
+    height: 3.5rem;
+    cursor: pointer;
+}
+
+.alt-sign-up-container > * > svg:last-of-type {
+    display: none;
+}
+
+.sign-up :last-child a {
+    /* min-width: fit-content; */
+    text-wrap: nowrap;
+}
+/* UTILITY CLASSES */
+
+.logo {
+    display: block;
+}
+
+
+
+/* MEDIA QUERIES */
+
+/* GENERAL */
+
+@media screen and (max-width: 1023px) {
+    .header-container {
+        display: block;
+    }
+
+    .pc-img-container {
+        display: none;
+    }
+
+}
+
+
+/* TABLETTE */
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+
+}
+
+/* PHONE */
+
+@media screen and (max-width: 767px) {
+
+}
+
+/*------------------------------------*/

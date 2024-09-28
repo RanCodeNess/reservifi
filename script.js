@@ -1,3 +1,5 @@
+"use strict";
+
 //
 // Variables declaration
 //
@@ -11,13 +13,10 @@
 
 // //
 // // Main code
-// //
-// toggleMenu.addEventListener('click',() =>{
-//     document.querySelector('.nav-links').classList.toggle('show');
-//     console.log('f')
-// } )
+
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
+
 
 menuToggle.addEventListener('click', () => {
     if (navLinks.classList.contains('show')) {
@@ -26,26 +25,35 @@ menuToggle.addEventListener('click', () => {
         navLinks.style.height = navLinks.scrollHeight + 'px';
     }
     navLinks.classList.toggle('show');
+
 });
+
+
+
+
+// Extract numeric part using regular expression
+
+
+
+
+
+
+// console.dir(myHeader.getBoundingClientRect())
 
 // console.log("hi")
 
 // handle the svgs
 
 let children = [];
-childrenLength = 8;
+let childrenLength = 8;
 
 for (let i = 0; i < childrenLength; i++) {
     children.push(document.querySelector(`.child-${i}`));
 }
 
-window.addEventListener('resize', () => {
-
-})
-
 let points = document.getElementsByClassName('before');
 let sticks = document.getElementsByClassName('after')
-console.log(points.length);
+// console.log(points.length);
 let initialValue
 // console.log(points[4])
 
@@ -61,9 +69,13 @@ function stickresize() {
 }
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    stickresize()
-})
+// document.addEventListener('DOMContentLoaded', () => {
+//     stickresize()
+// })
+
+window.onload = function () {
+    stickresize();
+}
 
 window.addEventListener('resize', () => {
     stickresize()
