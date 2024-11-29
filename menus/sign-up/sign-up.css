@@ -110,8 +110,11 @@ body .sign-up{
     background-color: white;
     border-radius: 15px;
     padding-inline: .75rem;
+    /* width: clamp(0, 20rem, 20rem) !important; */
+    width: 20%;
     min-width: fit-content;
-    -webkit-min-width: fit-content; /* WebKit */
+    max-width: 10rem;
+    -webkit-min-width: fit-content;
     height: 3.5rem;
     cursor: pointer;
     -webkit-user-select: none; /* WebKit to prevent text selection on hover */
