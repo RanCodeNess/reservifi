@@ -232,6 +232,7 @@ body {
     display: none;
     font-size: var(--menu-dimensions);
     width: var(--menu-dimensions);
+
     aspect-ratio: 1/1;
     text-align:center;
     cursor: pointer;
@@ -258,7 +259,9 @@ body {
 .nav-links > li:hover,
 .credit-container >div:hover {
     color: rgba(255, 127, 80, 1);
-    /* background-color: crimson; */
+
+    background-color:rg  200ms;
+
     transition: color 200ms;
     /* need a hover animation fix (no longer needed)*/
 }
@@ -633,7 +636,7 @@ footer hr {
 
 .reservifi-title {
     font-family: "Pacifico", cursive;
-    font-size: var(--title-size);
+    font-size: var(--title-size); /* add */
     font-weight: 300;
     color: rgba(27, 113, 245, 1);
     max-width: fit-content;
