@@ -41,7 +41,7 @@ body .sign-up{
     /* align-self: start; */
 }
 .header-su .reservifi-title {
-    margin-right: clamp(2rem, 5vw, 1rem);
+    margin-right: clamp(.5rem, 3.5vw, 2rem);
 }
 
 /* SIGN-UP */
